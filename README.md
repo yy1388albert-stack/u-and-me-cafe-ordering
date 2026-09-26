@@ -1,33 +1,18 @@
-# U & ME CAFÉ — Ordering prototype
+# U & ME CAFÉ 点餐 H5 — GitHub Pages 部署
 
-Muse 导出的静态点餐演示。无需安装依赖、构建或数据库；直接打开 index.html 即可预览。
-
-## 演示范围与限制
-- 菜单、规格、购物车、堂食桌号、外带和配送流程，以及中英法界面切换。
-- 订单仅存在当前页面内存中；刷新即丢失，不会发送给餐馆，也不能跨设备同步。
-- 支付、短信/邮件通知、会员及订单状态推进均为演示；没有真实支付或商家后台。
-- 金额逻辑为原型示意，未实现税费计算；不用于真实结账。
-- 地图依赖 unpkg.com 的 MapLibre GL 5.23.0 及 tiles.openfreemap.org；地图失败时隐藏地图。
-- 请勿在演示中输入真实客户资料。
-
-## 本地运行
-直接双击 index.html，或通过任意静态 HTTP 服务器打开。没有 npm install / build 步骤。
-
-## GitHub Pages
-在仓库 Settings → Pages 中选择 Deploy from a branch，main 分支和 / (root)，保存。
-预期地址：https://yy1388albert-stack.github.io/u-and-me-cafe-ordering/
-桌号示例：在网址后加 ?table=A01，然后选择堂食。
-.nojekyll 禁用 Jekyll 处理。后续提交 main 后由 Pages 自动更新。
-
-GitHub Pages 仅用于本项目原型展示。正式商业点餐服务需要其他运行平台、数据库、商家身份验证及订单 API。
-官方说明：https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits
+版本：2026-09-26 导出（当前最新版：英文单语、现金支付、GST 5%、新版首页、手机端地图缩小、地图弹窗只显示店名、地图版权默认收起、电话直拨修复）
 
 ## 文件
-- index.html：应用、样式、菜单和内嵌图片。
-- .gitignore：排除环境变量、密钥、缓存和开发产物。
-- .nojekyll：静态发布标记。
+- `index.html`：单文件版点餐 H5（含全部页面逻辑、样式、菜单数据，开箱即用）
 
-## 安全与维护
-本次导出没有发现常见密钥格式或凭证配置；这不等于完整安全审计。
-不要在前端源码中加入私钥或数据库密码。未来后端密钥应由服务端环境变量管理。
-未添加开源许可证；图片、品牌和菜单内容沿用原始导出。
+## 部署步骤（2 分钟）
+1. 在 GitHub 新建一个仓库（例如 `u-and-me-cafe-ordering`）。
+2. 把 `index.html` 上传到仓库根目录（Add file → Upload files）。
+3. 仓库 Settings → Pages → Build and deployment → Source 选 **Deploy from a branch**，
+   Branch 选 `main`、目录选 `/ (root)`，点 Save。
+4. 等 1–2 分钟，访问 `https://你的用户名.github.io/u-and-me-cafe-ordering/` 即可。
+
+## 说明
+- 这是纯静态单文件，GitHub Pages 直接可跑；地图、样式 CDN 需要访问者联网。
+- 原型内支付/通知为模拟演示，正式上线需接后端、真实支付与通知服务。
+- 之后每桌的桌码二维码，编码 `https://你的用户名.github.io/u-and-me-cafe-ordering/?table=桌号` 即可。
